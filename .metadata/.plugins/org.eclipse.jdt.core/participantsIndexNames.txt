@@ -1,0 +1,13 @@
+INDEX VERSION 1.131
+/home/yuvi/springboot/projects/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3760898182.index
+/MyWebApp/src/main/java
+/home/yuvi/springboot/projects/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/367272505.index
+/MyWebApp/src/main/java
+/home/yuvi/springboot/projects/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3274365780.index
+/CoursesMyWebApp/src/main/java
+/home/yuvi/springboot/projects/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/704995823.index
+/MyWebApp/src/main/java
+/home/yuvi/springboot/projects/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2062195165.index
+/MyWebApp/src/main/java
+/home/yuvi/springboot/projects/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/197163571.index
+/SpringBootJPA/src/main/java

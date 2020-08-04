@@ -1,0 +1,4 @@
+insert into alien values (101 ,'yuva', 'Java');
+insert into alien values (104 ,'komal', 'Java');
+insert into alien values (102,'Navin' ,'Python');
+insert into alien values (103,'Kiran' , 'PHP');

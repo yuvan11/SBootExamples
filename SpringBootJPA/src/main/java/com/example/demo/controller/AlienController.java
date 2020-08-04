@@ -1,0 +1,94 @@
+package com.example.demo.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.dao.AlienRepo;
+import com.example.demo.model.Alien;
+
+@RestController
+public class AlienController {
+	
+	@Autowired
+	AlienRepo repo;
+	
+	@RequestMapping("/")
+	public String home() {
+		return "home.jsp" ;
+		
+	
+	}
+	
+	@DeleteMapping("/alien/{aid}")
+	public String deleteAlien(@PathVariable int aid ) {
+		
+		Alien a = repo.getOne(aid);
+		
+		repo.delete(a);
+		
+		return "DELETED";
+	}
+	
+	@PutMapping(path="/alien" , consumes = {"application/json"})
+	public Alien saveOrUpdate(@RequestBody Alien alien) {
+		
+		repo.save(alien);
+		return alien;
+	}
+	
+	/*
+	
+	WITHOUT REST API CALLS
+	
+	@RequestMapping("/getAlien")
+	public ModelAndView getAlien(@RequestParam int aid)
+	{
+		
+		ModelAndView mv=new ModelAndView("showAlien.jsp");
+		Alien alien=repo.findById(aid).orElse(new Alien());
+		
+		
+		System.out.println(repo.findByTech("PHP"));
+		System.out.println(repo.findByAidGreaterThan(101));
+		System.out.println(repo.findByAidLessThan(102));
+		System.out.println(repo.findByAname("yuva"));
+		System.out.println(repo.findByTechSorted("Java")); 
+		*/
+	@PostMapping(path="/alien" , consumes = {"application/json"})
+	public Alien addAlien(@RequestBody Alien alien) {
+		
+		repo.save(alien);
+		return alien;
+	}
+
+	
+	@GetMapping(path="/aliens") //add along with path argument --> @RequestMapping(path="/aliens"), produces = {"application/xml"} ClientNegotiations , i.e ,Limiting myself to provide XML responses 
+									//@ResponseBody
+	public List<Alien> getAliens()  //Instead List if I use String returns in String Format else JSON format
+	{
+		return repo.findAll();      // return repo.findAll().toString(); If String is a datatype	
+	}
+	
+	
+
+	@RequestMapping("/aliens/{aid}")
+																	//@ResponseBody
+	public Optional<Alien> getAlien(@PathVariable("aid") int aid)
+	{
+		return repo.findById(aid);
+	}
+}

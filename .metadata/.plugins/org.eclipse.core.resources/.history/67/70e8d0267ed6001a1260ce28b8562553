@@ -1,0 +1,9 @@
+package com.example.yuva;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.yuva.model.Alien;
+
+public interface AlienRepo extends JpaRepository<Alien , Integer>{
+
+}
