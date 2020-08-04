@@ -1,1 +1,3 @@
 *.* linguist-language=Java
+*.sh linguist-detectable=false
+
